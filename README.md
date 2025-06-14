@@ -1,5 +1,9 @@
 # The OpenList Logo
 
+## License
+
+CC BY-SA 4.0
+
 ## Credits
 
-The author of logo is [Telegram User 5447822896](tg://user?id=5447822896).
+The logo author: [@ubnm](https://github.com/ubnm)

@@ -6,4 +6,5 @@ CC BY-SA 4.0
 
 ## Credits
 
-The logo author: [@ubnm](https://github.com/ubnm)
+- Created by [@ubnm](https://github.com/ubnm)
+- HD Remaster by [@meethuthu](https://github.com/meethuhu)

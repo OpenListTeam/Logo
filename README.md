@@ -26,7 +26,7 @@ You are free to copy, use, share, and adapt this icon for non-commercial purpose
 
   **Do not** use the icon for any **commercial purposes**
 
-### 附加说明与使用建议 Additional Notes and Usage Recommendations
+## 附加说明与使用建议 Additional Notes and Usage Recommendations
 
 为避免误解或混淆，我们诚挚建议您**避免**将图标原图或仅进行**轻微**修改的版本（如改色、简单裁剪、加字、旋转等）用于以下场景：
 

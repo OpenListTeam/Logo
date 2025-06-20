@@ -1,6 +1,6 @@
 # The OpenList Logo
 
-## License
+## 授权协议 License
 
 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
@@ -52,7 +52,7 @@ We warmly welcome creative remixes or adaptations of the icon for educational or
 
 For commercial use, brand integration, or other cases outside the above scope, please feel free to contact us for permission or further discussion.
 
-## Credits
+## 鸣谢 Credits
 
 - Designed by [@ubnm](https://github.com/ubnm)
 - HD remaster by [@meethuthu](https://github.com/meethuhu)

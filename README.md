@@ -54,5 +54,6 @@ For commercial use, brand integration, or other cases outside the above scope, p
 
 ## Credits
 
-- Created by [@ubnm](https://github.com/ubnm)
-- HD Remaster by [@meethuthu](https://github.com/meethuhu)
+- Designed by [@ubnm](https://github.com/ubnm)
+- HD remaster by [@meethuthu](https://github.com/meethuhu)
+- Converted by [@cxw620](https://github.com/cxw620)

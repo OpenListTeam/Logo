@@ -43,13 +43,22 @@ $icnsSizes = [
 ];
 
 $original = 'logo/14564x14564.png';
+$maskableBackgroundRgb = [38, 50, 56];
 [$originalW, $originalH] = getimagesize($original);
 is_dir('format') || mkdir('format', 02755, true);
 array_map('unlink', glob('format/*.png'));
 array_map('unlink', glob('format/*.webp'));
+is_dir('logo/maskable') || mkdir('logo/maskable', 02755, true);
+array_map('unlink', glob('logo/maskable/*.png'));
+array_map('unlink', glob('logo/maskable/*.webp'));
+is_dir('logo/monochrome') || mkdir('logo/monochrome', 02755, true);
+array_map('unlink', glob('logo/monochrome/*.png'));
+array_map('unlink', glob('logo/monochrome/*.webp'));
 is_dir('icon') || mkdir('icon', 02755, true);
 is_dir('logo.iconset') || mkdir('logo.iconset', 02755, true);
 chmod('format', 02755);
+chmod('logo/maskable', 02755);
+chmod('logo/monochrome', 02755);
 chmod('icon', 02755);
 chmod('logo.iconset', 02755);
 
@@ -69,8 +78,33 @@ foreach ($imageSizes as $size) {
     imagecopyresampled($image, $originalImage, 0, 0, 0, 0, $size, $size, $originalW, $originalH);
     imagepng($image, "format/{$size}x{$size}.png");
     imagewebp($image, "format/{$size}x{$size}.webp");
+
+    $maskable = imagecreatetruecolor($size, $size);
+    $maskableBackgroundColor = imagecolorallocate($maskable, ...$maskableBackgroundRgb);
+    imagefill($maskable, 0, 0, $maskableBackgroundColor);
+    imagealphablending($maskable, true);
+    imagecopyresampled($maskable, $originalImage, 0, 0, 0, 0, $size, $size, $originalW, $originalH);
+    imagepng($maskable, "logo/maskable/{$size}x{$size}.png");
+    imagewebp($maskable, "logo/maskable/{$size}x{$size}.webp");
+    imagedestroy($maskable);
+
+    $monochrome = imagecreatetruecolor($size, $size);
+    $monochromeAlpha = imagecolorallocatealpha($monochrome, 0, 0, 0, 127);
+    imagecolortransparent($monochrome, $monochromeAlpha);
+    imagefill($monochrome, 0, 0, $monochromeAlpha);
+    imagealphablending($monochrome, false);
+    imagesavealpha($monochrome, true);
+    imagecopyresampled($monochrome, $originalImage, 0, 0, 0, 0, $size, $size, $originalW, $originalH);
+    imagefilter($monochrome, IMG_FILTER_GRAYSCALE);
+    imagefilter($monochrome, IMG_FILTER_BRIGHTNESS, -255);
+    imagepng($monochrome, "logo/monochrome/{$size}x{$size}.png");
+    imagewebp($monochrome, "logo/monochrome/{$size}x{$size}.webp");
+    imagedestroy($monochrome);
+
     imagedestroy($image);
     echo "Generated: format/{$size}x{$size}.[png|webp]\n";
+    echo "Generated: logo/maskable/{$size}x{$size}.[png|webp]\n";
+    echo "Generated: logo/monochrome/{$size}x{$size}.[png|webp]\n";
 }
 imagedestroy($originalImage);
 #endregion
